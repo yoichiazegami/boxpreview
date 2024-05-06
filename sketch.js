@@ -6,7 +6,7 @@ let cam;
 let slider;
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight-40, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.position(0, 0);
   input = createFileInput(handleFile);
   input.position(10, 10);
@@ -58,8 +58,8 @@ function boxWithTexture(size) {
     translate(0, -100, -100);
     rotateY(PI * -1);
     beginShape();
-    vertex(0, 0, 0, 0.5, 382);
-    vertex(100, 0, 0, 0.75, 382);
+    vertex(0, 0, 0, 0.5, 0.382);
+    vertex(100, 0, 0, 0.75, 0.382);
     vertex(100, 161.8, 0, 0.75, 1);
     vertex(0, 161.8, 0, 0.5, 1);
     endShape();
