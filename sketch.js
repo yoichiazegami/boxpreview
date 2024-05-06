@@ -6,7 +6,7 @@ let cam;
 let slider;
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight-40, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.position(0, 0);
   input = createFileInput(handleFile);
   input.position(10, 10);
