@@ -36,6 +36,7 @@ function draw() {
 
 
 function boxWithTexture(size) {
+  orbitControl();
 
   light = 25 - sliderLight.value();
   amb = 125 + sliderAmb.value();
@@ -48,7 +49,6 @@ function boxWithTexture(size) {
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, -1);//5
   directionalLight(152 - light*4, 140 - light*4, 152 - light*4, 0, -1, 0);//6
 
-  orbitControl();
 
   translate(50, 20, 50);
 
