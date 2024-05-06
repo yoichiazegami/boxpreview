@@ -12,7 +12,7 @@ function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.position(0, 0);
   input = createFileInput(handleFile);
-  input.position(10, 100);
+  input.position(10, 10);
   cam = createCamera();
   sliderBack = createSlider(0, 255, 220);
   sliderBack.position(15, windowHeight-35);
