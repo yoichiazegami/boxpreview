@@ -15,11 +15,11 @@ function setup() {
   input.position(10, 10);
   cam = createCamera();
   sliderBack = createSlider(0, 255, 220);
-  sliderBack.position(15, windowHeight-35);
+  sliderBack.position(20, windowHeight-40);
   sliderLight = createSlider(0, 25, 15);
-  sliderLight.position(15, windowHeight-60);
+  sliderLight.position(20, windowHeight-80);
   sliderAmb = createSlider(0, 25, 20);
-  sliderAmb.position(15, windowHeight-85);
+  sliderAmb.position(20, windowHeight-120);
 }
 
 function draw() {
