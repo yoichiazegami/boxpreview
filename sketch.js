@@ -29,7 +29,7 @@ function draw() {
 
 function boxWithTexture(size) {
     orbitControl();
-    //scale(2);
+    scale(2);
     translate(50, 20, 50);
   
     push();
