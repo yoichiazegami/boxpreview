@@ -24,6 +24,7 @@ function setup() {
 }
 
 function draw() {
+  orbitControl(1.7, 1.7, 0.03);
   background(sliderBack.value());
   noStroke();
   if (img) {
@@ -31,12 +32,12 @@ function draw() {
     textureWidth = img.width;
     textureHeight = img.height;
   }
-  boxWithTexture(200);
+  boxWithTexture();
   textureMode(NORMAL);
 }
 
 
-function boxWithTexture(size) {
+function boxWithTexture() {
 
   light = 25 - sliderLight.value();
   amb = 125 + sliderAmb.value();
@@ -47,10 +48,9 @@ function boxWithTexture(size) {
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, 1);//3
   directionalLight(152 - light*1, 152 - light*1, 152 - light*1, 1, 0, 0);//4
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, -1);//5
-  directionalLight(152 - light*4, 140 - light*4, 152 - light*4, 0, -1, 0);//6
+  directionalLight(152 - light*3, 140 - light*3, 152 - light*3, 0, -1, 0);//6
 
-  orbitControl();
-
+  scale(1.9);
   translate(50, 20, 50);
 
   push();
