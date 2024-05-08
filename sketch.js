@@ -7,14 +7,19 @@ let sliderBack;
 let sliderLight;
 let sliderAmb;
 let light;
+let autoCheck;
+let autoSpeed;
 
 let title;
 let virsion;
 let template;
 let howto;
 
+// let select;
+
 var p = document.getElementById('title');
 p.style.color = '#f00';
+
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -28,10 +33,16 @@ function setup() {
   title = createP('Box Previewer for Typography Study [a]');
   virsion = createP('ver.0.2');
   //template = createA('BoxPreviewTemplate.zip', 'Template');
-  howto = createA('help.html', 'How to Use');
+  howto = createA('help.html', 'How to Use</br>');
 
-  label = createP('brightness</br>Shade</br>Background');
+  label = createP('Rotation</br>Brightness</br>Shade</br>Background');
   label.id('label');
+
+  // select = createElement('select');
+  // select.innerHTML = 'テクスチャーを選択';
+  // option = createElement('option');
+  // option.innerHTML = 'テクスチャーを選択';
+
 
   sliderBack = createSlider(0, 255, 220);
   sliderBack.position(15, windowHeight-35);
@@ -39,11 +50,17 @@ function setup() {
   sliderLight.position(15, windowHeight-60);
   sliderAmb = createSlider(0, 25, 20);
   sliderAmb.position(15, windowHeight-85);
+  // autoCheck = createCheckbox();
+  // autoCheck.position(15, windowHeight-107);
+  autoSpeed = createSlider(-3, 3, 0);
+  autoSpeed.position(15, windowHeight-110);
 }
 
 function draw() {
   orbitControl(3, 3, 0.03);
   background(sliderBack.value());
+  let t = frameCount/100;
+
   noStroke();
   if (img) {
     texture(img);
@@ -72,6 +89,12 @@ function draw() {
 
 function boxWithTexture() {
 
+  // if (autoCheck.checked()) {
+  //   rotateY(frameCount*autoSpeed.value()*0.003);
+  // } else {
+  // }
+  rotateY(frameCount*autoSpeed.value()*0.004);
+
   light = 25 - sliderLight.value();
   amb = 125 + sliderAmb.value();
   ambientLight(amb);
@@ -84,7 +107,7 @@ function boxWithTexture() {
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, -1, 0);//5
 
   scale(1.9);
-  translate(50, 10, 50);
+  translate(50, 20, 50);
 
   push();
   translate(-100, -100, 0);
