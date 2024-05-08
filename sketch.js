@@ -8,12 +8,30 @@ let sliderLight;
 let sliderAmb;
 let light;
 
+let title;
+let virsion;
+let template;
+let howto;
+
+var p = document.getElementById('title');
+p.style.color = '#f00';
+
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.position(0, 0);
   input = createFileInput(handleFile);
-  input.position(10, 100);
+  input.position(9, 80);
   cam = createCamera();
+  cam.setPosition(400, -250, -200);
+  cam.lookAt(0, 0, 0);
+
+  title = createP('Box Previewer for Typography Study [a]');
+  virsion = createP('ver.0.2');
+  //template = createA('BoxPreviewTemplate.zip', 'Template');
+  howto = createA('help.html', 'How to Use');
+
+  label = createP('brightness</br>Shade</br>Background');
+  label.id('label');
 
   sliderBack = createSlider(0, 255, 220);
   sliderBack.position(15, windowHeight-35);
@@ -32,6 +50,23 @@ function draw() {
   }
   boxWithTexture();
   textureMode(NORMAL);
+
+  if (sliderBack.value() < 120) {
+    title.class("white");
+    virsion.class("white");
+    //template.class("white");
+    howto.class("white");
+    input.class("white");
+    label.class("white");
+  } else {
+    title.class("black");
+    virsion.class("black");
+    //template.class("black");
+    howto.class("black");
+    input.class("black");
+    label.class("black");
+  }
+
 }
 
 
@@ -46,11 +81,10 @@ function boxWithTexture() {
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, 1);//3
   directionalLight(152 - light*1.1, 152 - light*1.1, 152 - light*1.1, 1, 0, 0);//4
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, -1);//5
+  directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, -1, 0);//5
 
   scale(1.9);
-  translate(50, 20, 50);
-
-  fill(255);
+  translate(50, 10, 50);
 
   push();
   translate(-100, -100, 0);
@@ -107,8 +141,6 @@ function boxWithTexture() {
   vertex(0, 100, 0, 0.25, 0.382);
   endShape();
   pop();
-
-  fill( -light*2 + 255);
 
   push();
   translate(0, 61.8, -100);
