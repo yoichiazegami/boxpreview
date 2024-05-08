@@ -46,10 +46,11 @@ function boxWithTexture() {
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, 1);//3
   directionalLight(152 - light*1.1, 152 - light*1.1, 152 - light*1.1, 1, 0, 0);//4
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, -1);//5
-  //directionalLight(152 - light*2, 152 - light*3, 152 - light*2, 0, -1, 0);//6
 
   scale(1.9);
   translate(50, 20, 50);
+
+  fill(255);
 
   push();
   translate(-100, -100, 0);
@@ -106,6 +107,8 @@ function boxWithTexture() {
   vertex(0, 100, 0, 0.25, 0.382);
   endShape();
   pop();
+
+  fill( -light*2 + 255);
 
   push();
   translate(0, 61.8, -100);
