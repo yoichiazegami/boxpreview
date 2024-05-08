@@ -24,13 +24,11 @@ function setup() {
 }
 
 function draw() {
-  orbitControl(1.7, 1.7, 0.03);
+  orbitControl(3, 3, 0.03);
   background(sliderBack.value());
   noStroke();
   if (img) {
     texture(img);
-    textureWidth = img.width;
-    textureHeight = img.height;
   }
   boxWithTexture();
   textureMode(NORMAL);
@@ -44,11 +42,11 @@ function boxWithTexture() {
   ambientLight(amb);
 
   directionalLight(152 - light*0, 152 - light*0, 152 - light*0, 0, 1, 0);//1
-  directionalLight(152 - light*1, 152 - light*1, 152 - light*1, -1, 0, 0);//2
+  directionalLight(152 - light*1.1, 152 - light*1.1, 152 - light*1.1, -1, 0, 0);//2
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, 1);//3
-  directionalLight(152 - light*1, 152 - light*1, 152 - light*1, 1, 0, 0);//4
+  directionalLight(152 - light*1.1, 152 - light*1.1, 152 - light*1.1, 1, 0, 0);//4
   directionalLight(152 - light*2, 152 - light*2, 152 - light*2, 0, 0, -1);//5
-  directionalLight(152 - light*3, 140 - light*3, 152 - light*3, 0, -1, 0);//6
+  //directionalLight(152 - light*2, 152 - light*3, 152 - light*2, 0, -1, 0);//6
 
   scale(1.9);
   translate(50, 20, 50);
@@ -112,11 +110,10 @@ function boxWithTexture() {
   push();
   translate(0, 61.8, -100);
   rotateX(PI / 2);
-  rotateY(PI);
   beginShape();
   vertex(0, 0, 0, 0.75, 0);
-  vertex(100, 0, 0, 1, 0);
-  vertex(100, 100, 0, 1, 0.382);
+  vertex(-100, 0, 0, 1, 0);
+  vertex(-100, 100, 0, 1, 0.382);
   vertex(0, 100, 0, 0.75, 0.382);
   endShape();
   pop();
